@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="SignalRTestClient.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Button
+            Margin="20"
+            Padding="20"
+            Command="{Binding Connect}"
+            HorizontalOptions="Center"
+            Text="Open Connection" />
+        <StackLayout
+            Grid.Row="1"
+            HorizontalOptions="Center"
+            Orientation="{OnPlatform Default=Vertical,
+                                     UWP=Horizontal}">
+            <Entry
+                Margin="20"
+                Text="{Binding MessageInput}"
+                WidthRequest="300" />
+            <Button
+                Margin="20"
+                Padding="20"
+                Command="{Binding SendMessage}"
+                HorizontalOptions="Center"
+                Text="Send Message" />
+        </StackLayout>
+        <ListView Grid.Row="2" ItemsSource="{Binding Messages}" />
+    </Grid>
+
+</ContentPage>
